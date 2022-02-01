@@ -1,0 +1,8 @@
+<!-- <app-room ></app-room>
+<app-room ></app-room> -->
+<div>Les chambres de notre {{title}}</div>
+<div class="container">
+    <div *ngFor="let room of rooms" class="room">
+            <app-room [roomId]="room.roomId" [guest]="room.guest"></app-room>
+    </div>
+</div>

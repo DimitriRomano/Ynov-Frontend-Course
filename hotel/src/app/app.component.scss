@@ -1,0 +1,16 @@
+.container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+}
+
+.room{
+    display: flex;
+    border: solid 1px black;
+    padding: 15px;
+    margin: 0;
+    width: fit-content;
+    border-radius: 25px;
+    flex-wrap: wrap;
+}

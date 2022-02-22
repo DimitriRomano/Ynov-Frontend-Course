@@ -2,6 +2,7 @@
 <p *ngIf="guest">Client : {{guest}}</p>
 <button [disabled]="isDoNotDisturb" (click)="sayKnock()">knock knock</button>
 <button (click)="changeKnock()">SwitchDoNotDistrub</button>
+<button (click)="deleteRoom()">Delete room</button>
 <input type="text" [(ngModel)]="guest">
 <app-fridge (updateStock)="updateRoomStock($event)" [isAvailable]="guest == 'paul'"  ></app-fridge>
 

@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { RoomComponent } from './room/room.component';
 import { FridgeComponent } from './fridge/fridge.component';
 import { RoomServiceService } from './room-service.service';
+import { AddRoomComponent } from './add-room/add-room.component';
+import { CountRoomComponent } from './count-room/count-room.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RoomComponent,
-    FridgeComponent
+    FridgeComponent,
+    AddRoomComponent,
+    CountRoomComponent
   ],
   imports: [
     BrowserModule,

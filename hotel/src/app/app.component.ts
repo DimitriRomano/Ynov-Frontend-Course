@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { RoomServiceService } from './room-service.service';
 import { IRoom } from './room.model';
 
@@ -8,13 +9,26 @@ import { IRoom } from './room.model';
   styleUrls: ['./app.component.scss'],
   providers: [RoomServiceService]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
   title = 'hotel';
-  rooms: IRoom[];
+  rooms!: IRoom[];
+  roomSubscription!: Subscription;
 
   constructor(private roomService: RoomServiceService){
     
-    this.rooms = this.roomService.rooms
+     this.roomService.rooms$.subscribe(
+       (rooms)=>{
+          this.rooms=rooms;
+        }
+        
+    );
+
+  }
+
+  ngOnDestroy(): void {
+      if(this.roomSubscription){
+        this.roomSubscription.unsubscribe();
+      }
   }
 
 }

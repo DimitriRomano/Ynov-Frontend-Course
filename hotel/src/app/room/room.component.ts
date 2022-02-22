@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RoomServiceService } from '../room-service.service';
 
 @Component({
   selector: 'app-room',
@@ -12,7 +13,7 @@ export class RoomComponent implements OnInit {
   @Input() guest = "Dimitri"
   fridgeIsAvailable = false;
 
-  constructor() {
+  constructor(private roomService : RoomServiceService) {
   }
 
   public sayKnock() {
@@ -28,6 +29,10 @@ export class RoomComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  deleteRoom(){
+    this.roomService.deleteRoom(this.roomId)
   }
 
 }
